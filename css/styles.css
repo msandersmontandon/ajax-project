@@ -50,6 +50,7 @@ button {
 }
 
 .button:active,
+.button-mobile:active,
 .fas:active {
   color: #ce9c4c;
   background-color: #28599e;
@@ -84,6 +85,38 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: bottom;
+}
+
+.container {
+  position: absolute;
+  top: 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-display {
+  padding: 8rem;
+  justify-content: space-around;
+}
+
+.card-wrapper {
+  height: 40vh;
+  width: calc(70vh / 3);
+  padding: 0.25rem;
+  background-color: #752437;
+  border: 1px solid #ce9c4c;
+  border-radius: 0.24rem;
+  margin: 2rem;
+}
+
+.card {
+  height: 100%;
+}
+
+.card img {
+  height: 100%;
+  object-fit: contain;
 }
 
 .foreground {
