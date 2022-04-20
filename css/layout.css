@@ -1,0 +1,33 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.header-button {
+  flex-basis: 10%;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 415px) {
+  .column {
+    flex-basis: 100%;
+    justify-content: left;
+  }
+}
