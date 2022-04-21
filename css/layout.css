@@ -14,7 +14,10 @@
 }
 
 .column-half {
-  flex-basis: 50%;
+  /* flex-basis: 40%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-button {
@@ -29,5 +32,9 @@
   .column {
     flex-basis: 100%;
     justify-content: left;
+  }
+
+  .column-half {
+    flex-basis: 100%;
   }
 }
