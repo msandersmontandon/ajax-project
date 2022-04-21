@@ -1,0 +1,151 @@
+* {
+  font-family: Rubik, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.head {
+  min-height: 3.5rem;
+  background-color: #0f233f;
+  border-bottom: 1px solid #ce9c4ce7;
+}
+
+.logo-name {
+  font-family: Spectral, sans-serif;
+  color: #ce9c4c;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.button,
+.button-mobile {
+  color: #ede2ce;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+.head button {
+  color: inherit;
+  background-color: inherit;
+  border: 0;
+
+  /* size: 100%; */
+}
+
+.menu {
+  display: none;
+  padding: 1rem;
+}
+
+.fas {
+  font-size: 1.5rem;
+  color: #ce9c4c50;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.594rem;
+  border: 1px solid #ce9c4c20;
+}
+
+.button:active,
+.button-mobile:active,
+.fas:active {
+  color: #ce9c4c;
+  background-color: #28599e;
+}
+
+main {
+  position: relative;
+}
+
+.background {
+  min-height: 100vh;
+}
+
+.red-lane {
+  background-color: #752437;
+  height: 1rem;
+}
+
+.bone-table {
+  background-color: #ede2ce;
+  min-height: 100vh;
+}
+
+.table-cloth {
+  margin: 0 auto;
+  width: 80vw;
+  height: 30vw;
+}
+
+.table-cloth img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.container {
+  position: absolute;
+  top: 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-display {
+  padding: 8rem;
+  justify-content: space-around;
+}
+
+.card-wrapper {
+  height: 40vh;
+  width: calc(72vh / 3);
+  padding: 0.25rem;
+  background-color: #752437;
+  border: 1px solid #ce9c4c;
+  border-radius: 0.24rem;
+  margin: 2rem;
+  text-align: center;
+}
+
+.card {
+  height: 100%;
+}
+
+.card img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.foreground {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #292929c9;
+}
+
+@media only screen and (max-width: 415px) {
+  .head {
+    justify-content: space-between;
+  }
+
+  .logo {
+    flex-basis: 70%;
+    justify-content: left;
+  }
+
+  .menu {
+    flex-basis: 10%;
+    display: inherit;
+  }
+
+  .button {
+    display: none;
+  }
+}

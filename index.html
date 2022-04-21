@@ -5,14 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" crossorigin="anonymous"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Spectral&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
+    <div class="row head">
+      <div class="column logo">
+        <h2 class="logo-name">Tower of Tarot</h2>
+      </div>
+      <div data-view="pick" class="column button">
+        <button data-view="pick">Pick a Card</button>
+      </div>
+      <div class="column menu">
+        <button>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row head mobile hidden">
+      <div data-view="pick mobile" class="column button-mobile">
+        <button data-view="pick mobile">Pick a Card</button>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="background">
+      <div class="red-lane"></div>
+      <div class="bone-table">
+        <div class="table-cloth">
+          <img src="https://c.zmags.com/assets/images/60119695faf7ea1f9311222f-optimized.png" alt="wheel of seasons">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row card-display hidden">
+        <div class="column">
+          <div class="card-wrapper">
+            <div class="card">
+              <img src="https://tse4.mm.bing.net/th?id=OIP.u9AKusVkegFtMQS5U5-UIgHaNA&amp" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foreground hidden">
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
