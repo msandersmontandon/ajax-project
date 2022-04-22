@@ -6,6 +6,13 @@ var $pickButtonMobile = $header.querySelector('[data-view="pick mobile"]');
 var $container = document.querySelector('.container');
 var $menu = document.querySelector('.menu');
 var $mobileRows = $header.querySelectorAll('.mobile');
+var $foreground = document.querySelector('.foreground');
+var $foregroundCard = $foreground.querySelector('img');
+var $foregroundTextName = $foreground.querySelector('#card-name');
+var $foregroundTextDescription = $foreground.querySelector('#card-description');
+var $foregroundTextUp = $foreground.querySelector('#card-up');
+var $foregroundTextReverse = $foreground.querySelector('#card-reverse');
+
 function Spread() {
   this.cards = [];
 }
@@ -36,6 +43,7 @@ Spread.prototype.pickCard = function (quantity) {
 
       var $cardWrap = document.createElement('div');
       $cardWrap.className = 'card-wrapper';
+      $cardWrap.setAttribute('data-card-index', currentCardIndex);
       $cardColumn.appendChild($cardWrap);
 
       var $cardElement = document.createElement('div');
@@ -45,6 +53,7 @@ Spread.prototype.pickCard = function (quantity) {
       var $cardImg = document.createElement('img');
       $cardImg.setAttribute('src', data.cards[currentCardIndex].image);
       $cardImg.setAttribute('alt', data.cards[currentCardIndex].name);
+      $cardImg.setAttribute('title', data.cards[currentCardIndex].name);
       $cardElement.appendChild($cardImg);
 
       data.currentCards.push({
@@ -52,7 +61,7 @@ Spread.prototype.pickCard = function (quantity) {
         cardWrap: $cardWrap,
         cardElement: $cardElement,
         cardImg: $cardColumn,
-        card: data.cards
+        card: data.cards[currentCardIndex]
       });
     }
   });
@@ -65,8 +74,29 @@ function pickOne() {
   data.currentSpread.pickCard(1);
 }
 
-$pickButton.addEventListener('click', pickOne);
-$pickButtonMobile.addEventListener('click', pickOne);
+function resetForeground() {
+  $foreground.className += ' hidden';
+  data.foregroundHidden = true;
+  if (!data.descriptionHidden) {
+    $foregroundTextName.closest('.description-wrapper').className += ' hidden';
+    data.descriptionHidden = true;
+  }
+  data.currentCards[data.selectedIndex].cardWrap.className = data.currentCards[data.selectedIndex].cardWrap.className.replace(' hidden', '');
+  data.selectedIndex = null;
+}
+
+$pickButton.addEventListener('click', function () {
+  if (!data.foregroundHidden) {
+    resetForeground();
+  }
+  pickOne();
+});
+$pickButtonMobile.addEventListener('click', function () {
+  if (!data.foregroundHidden) {
+    resetForeground();
+  }
+  pickOne();
+});
 $menu.addEventListener('click', function (event) {
   if (data.mobileHidden) {
     for (var i = 0; i < $mobileRows.length; i++) {
@@ -86,5 +116,38 @@ window.addEventListener('resize', function (event) {
       $mobileRows[i].className += ' hidden';
     }
     data.mobileHidden = true;
+  }
+});
+$container.addEventListener('click', function (event) {
+  if (event.target.closest('.card-wrapper')) {
+    $foreground.className = $foreground.className.replace(' hidden', '');
+    data.foregroundHidden = false;
+    event.target.closest('.card-wrapper').className += ' hidden';
+    data.selectedIndex = parseInt(event.target.closest('.card-wrapper').getAttribute('data-card-index'));
+    $foregroundCard.setAttribute('src', data.currentCards[data.selectedIndex].card.image);
+    $foregroundCard.setAttribute('alt', data.currentCards[data.selectedIndex].card.name);
+    $foregroundCard.setAttribute('title', data.currentCards[data.selectedIndex].card.name);
+    $foregroundTextName.textContent = data.currentCards[data.selectedIndex].card.name;
+    $foregroundTextDescription.textContent = data.currentCards[data.selectedIndex].card.desc;
+    $foregroundTextUp.textContent = data.currentCards[data.selectedIndex].card.meaning_up;
+    $foregroundTextReverse.textContent = data.currentCards[data.selectedIndex].card.meaning_rev;
+  }
+});
+
+$foreground.addEventListener('click', function (event) {
+  if (event.target.closest('.card-wrapper')) {
+    if (data.descriptionHidden) {
+      for (var i = 0; i < $mobileRows.length; i++) {
+        $foregroundTextName.closest('.description-wrapper').className = $foregroundTextName.closest('.description-wrapper').className.replace(' hidden', '');
+      }
+      data.descriptionHidden = false;
+    } else {
+      for (i = 0; i < $mobileRows.length; i++) {
+        $foregroundTextName.closest('.description-wrapper').className += ' hidden';
+      }
+      data.descriptionHidden = true;
+    }
+  } else if (!event.target.closest('.description-wrapper')) {
+    resetForeground();
   }
 });

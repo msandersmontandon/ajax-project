@@ -5,5 +5,8 @@ var data = {
   currentSpread: null,
   currentTable: null,
   nextTableID: 1,
-  mobileHidden: true
+  mobileHidden: true,
+  foregroundHidden: true,
+  descriptionHidden: true,
+  selectedIndex: null
 };

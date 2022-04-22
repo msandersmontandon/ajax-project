@@ -65,6 +65,7 @@ main {
 }
 
 .background {
+  height: inherit;
   min-height: inherit;
 }
 
@@ -72,11 +73,6 @@ main {
   background-color: #752437;
   height: 1rem;
 }
-
-/* .bone-table {
-  background-color: #ede2ce;
-  min-height: inherit;
-} */
 
 .table-cloth {
   margin: 0 auto;
@@ -113,6 +109,7 @@ main {
   border-radius: 0.24rem;
   margin: 2rem;
   text-align: center;
+  cursor: pointer;
 }
 
 .card {
@@ -140,7 +137,7 @@ main {
 
 .foreground .card-wrapper {
   height: 60vh;
-  width: calc(105vh / 3);
+  width: calc(107vh / 3);
 }
 
 .description-wrapper {
@@ -161,8 +158,8 @@ main {
   overflow: scroll;
 }
 
-.description p {
-  margin: 0;
+.left {
+  flex-basis: auto;
 }
 
 @media only screen and (max-width: 415px) {
