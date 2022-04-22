@@ -2,6 +2,11 @@
   font-family: Rubik, sans-serif;
 }
 
+body,
+html {
+  height: 100%;
+}
+
 body {
   min-height: 100vh;
   background-color: #ede2ce;
@@ -90,8 +95,7 @@ button.search-button {
 
 main {
   position: relative;
-  height: auto;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .background {
@@ -108,13 +112,26 @@ main {
   margin: 0 auto;
   width: 80vw;
   height: 30vw;
+  overflow: hidden;
 }
 
 .table-cloth img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  transform: translate(0, -63%);
+  animation-duration: 180s;
+  animation-name: season;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes season {
+  from {
+    transform: translate(0, -63%);
+  }
+
+  to {
+    transform: translate(0, -63%) rotate(1turn);
+  }
 }
 
 .container {
@@ -123,11 +140,12 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
+  overflow: scroll;
 }
 
 .card-display {
   padding: 8rem;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .card-wrapper {
@@ -192,7 +210,7 @@ main {
   flex-basis: auto;
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 550px) {
   main {
     height: 120vh;
   }
@@ -231,6 +249,10 @@ main {
     margin: 0;
     justify-content: space-between;
     flex-grow: 1;
+  }
+
+  .card-display {
+    padding: 4rem;
   }
 
   .foreground .card-display {
