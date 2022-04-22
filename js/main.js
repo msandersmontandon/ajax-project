@@ -5,6 +5,8 @@ var $pickButton = $header.querySelector('[data-view="pick"]');
 var $pickButtonMobile = $header.querySelector('[data-view="pick-mobile"]');
 var $search = $header.querySelector('[data-view="search"]');
 var $searchMobile = $header.querySelector('[data-view="search-mobile"]');
+var $spreadButton = $header.querySelector('[data-view="spread"]');
+var $spreadButtonMobile = $header.querySelector('[data-view="spread-mobile"]');
 var $container = document.querySelector('.container');
 var $menu = document.querySelector('.menu');
 var $mobileRows = $header.querySelectorAll('.mobile');
@@ -68,8 +70,20 @@ function pickCard(quantity) {
 
 function pickOne() {
   // data.currentSpread = new Spread();
+  if (!data.foregroundHidden) {
+    resetForeground();
+  }
   setTable();
   pickCard(1);
+}
+
+function pickThree() {
+  // data.currentSpread = new Spread();
+  if (!data.foregroundHidden) {
+    resetForeground();
+  }
+  setTable();
+  pickCard(3);
 }
 
 function resetForeground() {
@@ -134,18 +148,12 @@ function search(event) {
   searchRequest.send();
 }
 
-$pickButton.addEventListener('click', function () {
-  if (!data.foregroundHidden) {
-    resetForeground();
-  }
-  pickOne();
-});
-$pickButtonMobile.addEventListener('click', function () {
-  if (!data.foregroundHidden) {
-    resetForeground();
-  }
-  pickOne();
-});
+$pickButton.addEventListener('click', pickOne);
+$pickButtonMobile.addEventListener('click', pickOne);
+
+$spreadButton.addEventListener('click', pickThree);
+$spreadButtonMobile.addEventListener('click', pickThree);
+
 $menu.addEventListener('click', function (event) {
   if (data.mobileHidden) {
     for (var i = 0; i < $mobileRows.length; i++) {

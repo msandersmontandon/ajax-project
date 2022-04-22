@@ -29,6 +29,8 @@ body {
 .button-mobile {
   color: #ede2ce;
   cursor: pointer;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 button {
