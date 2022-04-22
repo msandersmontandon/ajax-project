@@ -2,6 +2,11 @@
   font-family: Rubik, sans-serif;
 }
 
+body,
+html {
+  height: 100%;
+}
+
 body {
   min-height: 100vh;
   background-color: #ede2ce;
@@ -28,14 +33,10 @@ body {
 
 button {
   cursor: pointer;
-}
-
-.head button {
+  font-size: 1rem;
   color: inherit;
   background-color: inherit;
   border: 0;
-
-  /* size: 100%; */
 }
 
 .menu {
@@ -53,15 +54,48 @@ button {
 
 .button:active,
 .button-mobile:active,
-.fas:active {
+.fas:active,
+.search-button:active,
+.selected {
   color: #ce9c4c;
   background-color: #28599e;
 }
 
+.search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: right;
+  align-items: stretch;
+}
+
+.search-form {
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-text {
+  /* line-height: 1rem; */
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 14rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  appearance: none;
+  margin: 0 0.25rem;
+}
+
+button.search-button {
+  color: #ce9c4c;
+  border: 1px solid #ce9c4cc7;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin: 0 0.25rem;
+}
+
 main {
   position: relative;
-  height: auto;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .background {
@@ -78,13 +112,26 @@ main {
   margin: 0 auto;
   width: 80vw;
   height: 30vw;
+  overflow: hidden;
 }
 
 .table-cloth img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  transform: translate(0, -63%);
+  animation-duration: 180s;
+  animation-name: season;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes season {
+  from {
+    transform: translate(0, -63%);
+  }
+
+  to {
+    transform: translate(0, -63%) rotate(1turn);
+  }
 }
 
 .container {
@@ -93,11 +140,12 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
+  overflow: scroll;
 }
 
 .card-display {
   padding: 8rem;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .card-wrapper {
@@ -162,7 +210,7 @@ main {
   flex-basis: auto;
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 550px) {
   main {
     height: 120vh;
   }
@@ -183,6 +231,28 @@ main {
 
   .button {
     display: none;
+  }
+
+  .button-mobile {
+    padding-left: 0.625rem;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .search-mobile {
+    padding: 0 0.75rem;
+  }
+
+  .search-form {
+    margin: 0;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .card-display {
+    padding: 4rem;
   }
 
   .foreground .card-display {

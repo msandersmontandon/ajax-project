@@ -2,7 +2,7 @@
 var data = {
   cards: [],
   currentCards: [],
-  currentSpread: null,
+  currentSpread: [],
   currentTable: null,
   nextTableID: 1,
   mobileHidden: true,
