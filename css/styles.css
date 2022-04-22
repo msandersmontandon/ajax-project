@@ -4,6 +4,7 @@
 
 body {
   min-height: 100vh;
+  background-color: #ede2ce;
 }
 
 .head {
@@ -59,20 +60,18 @@ button {
 
 main {
   position: relative;
+  height: auto;
+  min-height: 100vh;
 }
 
 .background {
-  min-height: 100vh;
+  height: inherit;
+  min-height: inherit;
 }
 
 .red-lane {
   background-color: #752437;
   height: 1rem;
-}
-
-.bone-table {
-  background-color: #ede2ce;
-  min-height: 100vh;
 }
 
 .table-cloth {
@@ -110,6 +109,7 @@ main {
   border-radius: 0.24rem;
   margin: 2rem;
   text-align: center;
+  cursor: pointer;
 }
 
 .card {
@@ -130,7 +130,43 @@ main {
   background-color: #292929c9;
 }
 
+.foreground .card-display {
+  padding: 4rem;
+  justify-content: center;
+}
+
+.foreground .card-wrapper {
+  height: 60vh;
+  width: calc(107vh / 3);
+}
+
+.description-wrapper {
+  background-color: #752437;
+  border: 1px solid #ce9c4c;
+  border-radius: 0.24rem;
+  margin: 2rem;
+  padding: 0.5rem;
+  width: auto;
+  min-width: calc(105vh / 3);
+  max-width: 60vh;
+  height: 60vh;
+  color: #ede2ce;
+}
+
+.description {
+  height: 100%;
+  overflow: scroll;
+}
+
+.left {
+  flex-basis: auto;
+}
+
 @media only screen and (max-width: 415px) {
+  main {
+    height: 120vh;
+  }
+
   .head {
     justify-content: space-between;
   }
@@ -147,5 +183,15 @@ main {
 
   .button {
     display: none;
+  }
+
+  .foreground .card-display {
+    padding: 2rem;
+  }
+
+  .description-wrapper {
+    margin: 0;
+    height: 40vh;
+    width: calc(105vh / 3);
   }
 }
